@@ -34,14 +34,14 @@ Ikuti langkah-langkah di bawah ini untuk mengunduh dan menjalankan script menggu
 ### 1. Kloning Repositori (Git Clone)
 Buka Terminal atau Command Prompt (CMD) Anda, lalu jalankan perintah berikut untuk mengunduh repositori ini ke komputer Anda:
 ```bash
-git clone https://github.com/username/nama-repositori.git
+git clone https://github.com/afgequipments/AnyDesk-Ads-Remover.git
 ```
 
 ### 2. Masuk ke Direktori
 
 Pindah ke folder hasil kloning yang baru saja dibuat:
 ```
-cd folder
+cd AnyDesk-Ads-Remover
 ```
 
 ### Jalankan via File Batch (main.bat)
