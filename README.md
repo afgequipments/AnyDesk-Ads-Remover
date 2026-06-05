@@ -44,7 +44,7 @@ Pindah ke folder hasil kloning yang baru saja dibuat:
 cd AnyDesk-Ads-Remover
 ```
 
-### Jalankan via File Batch (main.bat)
+### 3. Jalankan File Batch (main.bat)
 
 Di dalam folder tersebut, Anda akan menemukan file bernama ```main.bat``` yang berfungsi sebagai peluncur otomatis.
 1. Buka File Explorer dan cari file ```main.bat```.
