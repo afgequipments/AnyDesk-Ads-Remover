@@ -1,53 +1,44 @@
-# 🧹 AnyDesk Ads Remover
+# 🧹 AnyDesk Ads Remover & Hard Resetter
 
-[![PowerShell](https://img.shields.io/badge/PowerShell-%235391FE.svg?style=for-the-badge&logo=powershell&logoColor=white)](https://learn.microsoft.com/en-us/powershell/)
+[![Batch Script](https://img.shields.io/badge/Batch_Script-%234D4D4D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white)](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands)
 [![Platform](https://img.shields.io/badge/Platform-Windows-blue?style=for-the-badge&logo=windows)](https://www.microsoft.com/windows)
 
-Script interaktif berbasis **PowerShell** yang dirancang untuk membersihkan file konfigurasi AnyDesk (seperti iklan/propaganda, log, dan trace data) secara otomatis pada folder `AppData\Roaming`. Script ini dibuat secara aman dengan metode penyaringan (*filtering*) agar **tidak menghapus** data penting Anda.
+Script otomatis berbasis **Batch File (.bat)** yang dirancang untuk menghilangkan pop-up *Commercial Use* / iklan pada AnyDesk dengan metode **Hard Reset**. Script ini bekerja secara agresif membersihkan seluruh direktori AnyDesk untuk memulihkan status penggunaan personal (*Personal Use*).
 
 ---
 
-## ✨ Fitur Utama
+## ⚠️ Konsekuensi Penting (Harus Dibaca)
 
-* **Pembersihan Selektif (Aman):** Menghapus file sampah dan konfigurasi iklan, tetapi **melindungi** file identitas utama (`user.conf`) dan folder cache visual (`thumbnails`).
-* **Interaktif & Informatif:** Dilengkapi dengan menu CLI (*Command Line Interface*) yang bersih dan pewarnaan teks untuk status proses.
-* **Pratinjau File:** Anda dapat melihat daftar file yang ada di dalam direktori AnyDesk sebelum memutuskan untuk menghapusnya.
+Script ini menggunakan metode pembersihan total (*Total Wipeout*). Karena server AnyDesk mengunci status iklan komersial pada ID perangkat Anda, maka:
+
+* ✨ **Iklan/Pop-up Komersial:** Akan hilang sepenuhnya.
+* 🆔 **ID AnyDesk Anda:** Akan di-reset dan berubah menjadi 9 digit angka baru.
+* 🕒 **Riwayat Koneksi & Pengaturan:** Seluruh daftar komputer yang pernah Anda remote (*Recent Connections*), password *Unattended Access*, dan pengaturan personal lainnya **akan terhapus secara permanen** karena seluruh folder konfigurasi dibersihkan tanpa sisa.
 
 ---
 
-## 🔧 File yang Dilindungi vs Dihapus
+## ✨ Fitur Utama Script
 
-| Nama File / Folder | Status | Keterangan |
+* **Pembersihan Multi-Direktori:** Menghapus folder AnyDesk di `AppData` (tingkat pengguna) dan `ProgramData` (tingkat sistem) tempat lisensi komersial dikunci.
+* **Manajemen Windows Service:** Menghentikan dan menonaktifkan sementara `AnyDesk Service` di latar belakang secara otomatis agar file sistem yang terkunci bisa dihapus dengan lancar.
+* **Otomatis & Praktis:** Tidak ada menu interaktif. Cukup jalankan sekali sebagai Administrator, dan script akan menyelesaikan tugasnya dalam hitungan detik.
+
+---
+
+## 🔧 Detail Struktur Pembersihan
+
+| Nama Folder | Aksi Script | Dampak pada Pengguna |
 | :--- | :---: | :--- |
-| `user.conf` | 🛡️ **Aman** | Menyimpan ID AnyDesk dan pengaturan penting pengguna. |
-| Folder `thumbnails` | 🛡️ **Aman** | Menyimpan gambar/ikon komputer yang pernah diremote. |
-| `service.conf` | ❌ *Dihapus* | Seringkali memuat konfigurasi iklan/lisensi komersial. |
-| `system.conf` | ❌ *Dihapus* | File konfigurasi sistem berkala. |
-| File `.trace` / `.log` | ❌ *Dihapus* | File riwayat koneksi dan log aktivitas. |
+| `%appdata%\AnyDesk` | ❌ **Dihapus Total** | Menghapus ID lama, pengaturan *user*, dan riwayat remote (*recent connections*). |
+| `%programdata%\AnyDesk` | ❌ **Dihapus Total** | Menghapus konfigurasi sistem dan jejak lisensi komersial dari AnyDesk Service. |
 
 ---
 
 ## 💻 Cara Penggunaan
 
-Ikuti langkah-langkah di bawah ini untuk mengunduh dan menjalankan script menggunakan Git dan File Batch:
-
-### 1. Kloning Repositori (Git Clone)
-Buka Terminal atau Command Prompt (CMD) Anda, lalu jalankan perintah berikut untuk mengunduh repositori ini ke komputer Anda:
-```bash
-git clone https://github.com/afgequipments/AnyDesk-Ads-Remover.git
-```
-
-### 2. Masuk ke Direktori
-
-Pindah ke folder hasil kloning yang baru saja dibuat:
-```
-cd AnyDesk-Ads-Remover
-```
-
-### 3. Jalankan File Batch (main.bat)
-
-Di dalam folder tersebut, Anda akan menemukan file bernama ```main.bat``` yang berfungsi sebagai peluncur otomatis.
-1. Buka File Explorer dan cari file ```main.bat```.
-2. Klik kanan pada file ```main.bat```.
-3. Pilih opsi Run as Administrator (Jalankan sebagai Administrator).
-4. Jendela konsol akan terbuka dan menu interaktif Pengelola File AnyDesk siap digunakan.
+1. Unduh atau salin kode *script* ke dalam file baru dan beri nama **`main.bat`**.
+2. Pastikan aplikasi AnyDesk sudah ditutup.
+3. **Klik kanan** pada file `main.bat` tersebut.
+4. Pilih opsi **Run as Administrator** (Jalankan sebagai Administrator).
+5. Tunggu proses konsol selesai hingga muncul pesan sukses, lalu tekan tombol apa saja untuk keluar.
+6. Buka kembali AnyDesk Anda. Aplikasi akan berjalan dalam kondisi bersih dengan ID baru yang bebas iklan.
